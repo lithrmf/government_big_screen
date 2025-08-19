@@ -19,6 +19,8 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  --app-header-height: 70px;
 }
 
 /* semantic color variables for this project */
@@ -35,6 +37,8 @@
 
   --section-gap: 160px;
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -56,6 +60,69 @@
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
+}
+
+@font-face {
+  font-family: "c-din";
+  src: url("./fonts/DIN\ Alternate\ Bold.ttf");
+}
+
+.font-din {
+  font-family: "c-din";
+}
+
+@font-face {
+  font-family: "c-huakang";
+  src: url("./fonts/huakangzongyi.TTF");
+}
+
+.font-huakang {
+  font-family: "c-huakang";
+}
+
+@font-face {
+  font-family: "c-ssb";
+  src: url("./fonts/SourceHanSansSC-Bold-2.otf");
+}
+
+.font-ssb {
+  font-family: "c-ssb";
+}
+
+@font-face {
+  font-family: "c-ssl";
+  src: url("./fonts/SourceHanSansSC-Light-2.otf");
+}
+
+.font-ssl {
+  font-family: "c-ssl";
+}
+
+@font-face {
+  font-family: "c-ssm";
+  src: url("./fonts/SourceHanSansSC-Medium-2.otf");
+}
+
+.font-ssm {
+  font-family: "c-ssm";
+}
+
+@font-face {
+  font-family: "c-ssn";
+  src: url("./fonts/SourceHanSansSC-Normal-2.otf");
+}
+
+.font-ssn {
+  font-family: "c-ssn";
+}
+
+@font-face {
+  font-family: "c-ssr";
+  src: url("./fonts/SourceHanSansSC-Regular-2.otf");
+}
+
+.font-ssr {
+  font-family: "c-ssr"; 
 }
 
 body {
