@@ -4,10 +4,51 @@
     <video style="width: 100%;height: 100%;" muted loop autoplay>
       <source src="../assets/dv-index-main.mp4">
     </video>
-    <div class="dv-index-main"></div>
+    <div class="dv-index-main">
+      <div class="dv-btn-group">
+        <div 
+          v-for="(item,index) in btnArr" 
+          :key="index" 
+          class="btn-item"
+          :class="[btnClassHandle(item.num)]"
+          >
+          <img :src="getItemUrl(item.url)" alt="">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
-
+<script lang="ts" setup>
+import {ref} from 'vue'
+// 定义首页的按钮数组
+const btnArr = ref<any>([
+  {
+    num:'one',
+    url:'安全基础.png'
+  },
+  {
+    num:'two',
+    url:'重大危险源.png'
+  },
+  {
+    num:'three',
+    url:'双重预防.png'
+  },
+  {
+    num:'four',
+    url:'特殊作业.png'
+  }
+])
+// 用于拼接按钮的图片路径
+const getItemUrl=(url:string)=>{
+  // 返回一个url路径
+  return new URL(`../assets/images/${url}`,import.meta.url).href
+}
+// 给不同的按钮添加动态类
+const btnClassHandle=(key:string)=>{
+  return `btn-item-${key}`
+}
+</script>
 <style lang="scss" scoped>
 .box{
   position: relative;
@@ -22,5 +63,43 @@
   height: 100%;
   background: url('../assets/images/大屏首页.png') no-repeat;
   background-size: 100% 100%;
+  .dv-btn-group{
+    position: absolute;
+    left:0;
+    bottom: 230px;
+    width: 100%;
+    height: 370px;
+    z-index: 10;
+    .btn-item{
+      position: absolute;
+      width: 140px;
+      height: 160px;
+      cursor: pointer;
+      transition: transform .3s;
+      .img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .btn-item-one{
+      top:143px;
+      left:260px;
+    }
+    .btn-item-two{
+      top:184px;
+      left:650px;
+    }
+    .btn-item-three{
+      top:183px;
+      right:710px;
+    }
+    .btn-item-four{
+      top:132px;
+      right:325px;
+    }
+  }
+}
+.btn-item:hover{
+  transform: scale(1.1);
 }
 </style>

@@ -9,11 +9,14 @@
     "eslint.config.*"
   ],
   "compilerOptions": {
-    "noEmit": true,
+    "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "types": ["node"]
+    "outDir": "./dist/node",
+    // 使用明确支持的模块类型
+    "module": "node20",
+    "moduleResolution": "nodenext",
+    "types": ["node"],
+    // 确保没有禁用输出
+    "noEmit": false
   }
 }
