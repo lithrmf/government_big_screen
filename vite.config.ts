@@ -14,7 +14,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      // 配置短路径，方便使用
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@map': fileURLToPath(new URL('./src/map', import.meta.url)),
     },
+    extensions: ['.ts', '.js', '.tsx', '.jsx', '.json', '.vue'],
+    mainFields:['index']  // 在引入文件夹时首先引入 index 文件
   },
 })

@@ -11,6 +11,7 @@
           :key="index" 
           class="btn-item"
           :class="[btnClassHandle(item.num)]"
+          @click="btnLinkHandle(item.urlKey)"
           >
           <img :src="getItemUrl(item.url)" alt="">
         </div>
@@ -20,23 +21,29 @@
 </template>
 <script lang="ts" setup>
 import {ref} from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 // 定义首页的按钮数组
 const btnArr = ref<any>([
   {
     num:'one',
-    url:'安全基础.png'
+    url:'安全基础.png',   // 用于图片路径的拼接
+    urlKey:'datav/security'  // 用于路由的拼接
   },
   {
     num:'two',
-    url:'重大危险源.png'
+    url:'重大危险源.png',
+    urlKey:'datav/major-hazard'  
   },
   {
     num:'three',
-    url:'双重预防.png'
+    url:'双重预防.png',
+    urlKey:'datav/double-prevention-mechanism' 
   },
   {
     num:'four',
-    url:'特殊作业.png'
+    url:'特殊作业.png',
+    urlKey:'datav/double-prevention-mechanism' 
   }
 ])
 // 用于拼接按钮的图片路径
@@ -48,7 +55,14 @@ const getItemUrl=(url:string)=>{
 const btnClassHandle=(key:string)=>{
   return `btn-item-${key}`
 }
+// 点击按钮路由跳转
+const btnLinkHandle=(key:string)=>{
+  router.push({
+    path:`/${key}`
+  })
+}
 </script>
+
 <style lang="scss" scoped>
 .box{
   position: relative;

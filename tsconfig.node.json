@@ -1,22 +1,11 @@
 {
-  "extends": "@tsconfig/node22/tsconfig.json",
-  "include": [
-    "vite.config.*",
-    "vitest.config.*",
-    "cypress.config.*",
-    "nightwatch.conf.*",
-    "playwright.config.*",
-    "eslint.config.*"
-  ],
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "composite": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "outDir": "./dist/node",
-    // 使用明确支持的模块类型
-    "module": "node20",
-    "moduleResolution": "nodenext",
+    "lib": ["ESNext"],
+    "module": "esnext", // 改为 NodeNext（原 CommonJS 与 NodeNext 冲突）
     "types": ["node"],
-    // 确保没有禁用输出
-    "noEmit": false
-  }
+    "composite": true // 子项目必须开启 composite
+  },
+  "include": ["vite.config.ts"],
+  "exclude": ["node_modules"]
 }

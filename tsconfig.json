@@ -1,16 +1,20 @@
 {
-  "files": [],
-  "include":[
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext", // 改为 NodeNext，与 moduleResolution 保持一致
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "composite": true, // 根项目也需要开启 composite
+    // 添加以下路径映射，与vite别名对应
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@map/*": ["src/map/*"]
     }
-  ],
+  },
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.app.json" }
+  ]
 }
