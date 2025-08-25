@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import VScaleScreen from 'v-scale-screen'
+import {getHazard} from '@/api/safe'
+
+getHazard({companyId:0}).then(res=>{
+  console.log(res)
+})
 </script>
 <template>
   <!-- 大屏适配：不出现滚动条 -->
